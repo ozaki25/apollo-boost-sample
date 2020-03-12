@@ -3,18 +3,7 @@ import { gql } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import client from './graphql/client';
-
-client
-  .query({
-    query: gql`
-      {
-        rates(currency: "USD") {
-          currency
-        }
-      }
-    `,
-  })
-  .then(result => console.log(result));
+import ExchangeRates from './components/ExchangeRates';
 
 function App() {
   return (
@@ -22,6 +11,7 @@ function App() {
       <div>
         <h2>My first Apollo app 🚀</h2>
       </div>
+      <ExchangeRates />
     </ApolloProvider>
   );
 }
