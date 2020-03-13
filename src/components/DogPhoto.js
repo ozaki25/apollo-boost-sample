@@ -15,6 +15,7 @@ function DogPhoto({ breed }) {
   );
 
   if (networkStatus === 4) return 'Refetching!';
+  if (networkStatus === 6) return 'Polling!';
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
