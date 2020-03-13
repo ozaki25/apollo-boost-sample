@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
 
 import client from './graphql/client';
-import ExchangeRates from './components/ExchangeRates';
 import Dogs from './components/Dogs';
+import DogPhoto from './components/DogPhoto';
 
 function App() {
+  const [dog, setDog] = useState(null);
   return (
     <ApolloProvider client={client}>
       <div>
         <h2>My first Apollo app 🚀</h2>
       </div>
-      <Dogs onDogSelected={e => console.log(e.target.value)} />
+      <Dogs onDogSelected={e => setDog(e.target.value)} />
+      {dog && <DogPhoto breed={dog} />}
     </ApolloProvider>
   );
 }

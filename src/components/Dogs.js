@@ -10,13 +10,15 @@ function Dogs({ onDogSelected }) {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <select name="dog" onChange={onDogSelected}>
-      {data.dogs.map(dog => (
-        <option key={dog.id} value={dog.breed}>
-          {dog.breed}
-        </option>
-      ))}
-    </select>
+    <div>
+      <select name="dog" onChange={onDogSelected}>
+        {data.dogs.map(dog => (
+          <option key={dog.id} value={dog.breed}>
+            {dog.breed}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 
