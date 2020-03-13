@@ -4,12 +4,17 @@ import { useQuery } from '@apollo/client';
 import query from '../graphql/query';
 
 function DogPhoto({ breed }) {
-  const { loading, error, data, refetch } = useQuery(query.GET_DOG_PHOTO, {
-    variables: { breed },
-    skip: !breed,
-    pollInterval: 5000,
-  });
+  const { loading, error, data, refetch, networkStatus } = useQuery(
+    query.GET_DOG_PHOTO,
+    {
+      variables: { breed },
+      skip: !breed,
+      pollInterval: 10000,
+      notifyOnNetworkStatusChange: true,
+    },
+  );
 
+  if (networkStatus === 4) return 'Refetching!';
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
