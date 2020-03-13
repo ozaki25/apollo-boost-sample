@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 
 import client from './graphql/client';
 import ExchangeRates from './components/ExchangeRates';
+import Dogs from './components/Dogs';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <div>
         <h2>My first Apollo app 🚀</h2>
       </div>
-      <ExchangeRates />
+      <Dogs onDogSelected={e => console.log(e.target.value)} />
     </ApolloProvider>
   );
 }

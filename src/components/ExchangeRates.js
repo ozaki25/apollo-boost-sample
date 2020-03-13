@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const EXCHANGE_RATES = gql`
   {
-    rates(currency: "USD") {
+    rates(currency: "JPY") {
       currency
       rate
     }
