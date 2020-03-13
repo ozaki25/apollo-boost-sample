@@ -6,6 +6,8 @@ import query from '../graphql/query';
 function DogPhoto({ breed }) {
   const { loading, error, data } = useQuery(query.GET_DOG_PHOTO, {
     variables: { breed },
+    skip: !breed,
+    pollInterval: 2000,
   });
 
   if (loading) return 'Loading...';
