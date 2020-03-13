@@ -1,6 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { gql, useQuery } from '@apollo/client';
 
 const EXCHANGE_RATES = gql`
   {
@@ -13,6 +12,8 @@ const EXCHANGE_RATES = gql`
 
 function ExchangeRates() {
   const { loading, error, data } = useQuery(EXCHANGE_RATES);
+
+  console.log({ loading, error, data });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
