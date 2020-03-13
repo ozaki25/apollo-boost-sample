@@ -12,7 +12,7 @@ function DogPhoto({ breed }) {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <img src={data.dog.displayImage} style={{ height: 100, width: 100 }} />
+    <img src={data.dog.displayImage} style={{ height: 300, width: 300 }} />
   );
 }
 
